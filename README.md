@@ -15,37 +15,72 @@ Overview
 Let's you play a simulation of the old PC game
 [Scorched Earth](http://en.wikipedia.org/wiki/Scorched_Earth_%28video_game%29).
 
-Command:
+Commands:
 
-* *fire* _[speed]_ _[fuse]_
+* *rpg* _[fuse speed|short|long|fast]_
+* *fire* _[fuse speed|short|long|fast]_
 
 Documentation
 -------------
 
+*WARNING: This game is very destructive to world maps.*
+
 Let's you play a game similar to
 [Scorched Earth](http://en.wikipedia.org/wiki/Scorched_Earth_%28video_game%29).
 
-You are given a RPG which you can use to fire grenades (TNT) to your
-opponent using the `/fire` command.
+You need to have a bow, at least one arrow and as many TNT's as you
+can muster.
 
-The grenade is sent in the direction you are facing.  Looking up or
-down controls the angle of elevation (thus the distance fired).
+Equip the bow.  And then enter the command:
 
-You can tweak the grenade by optionally specifying an initial _speed_
-and a _fuse_ setting.
+	/rpg fast
+
+Activates the RPG with default settings.  Now start shooting your
+bow.  Instead of arrows, you will find Primed TNTs.
+
+With this you can play a
+[Scorched Earth](http://en.wikipedia.org/wiki/Scorched_Earth_%28video_game%29).
+like game.
+
+Looking up or down controls the angle of elevation (thus the distance fired).
+
+You can tweak the grenade by optionally specifying an initial _fuse_
+and a _speed_ setting.
 
 The game is played with two or more players in different locations in
 the map, and they trade shots until only one remains.
 
-WARNING: This game is very destructive to world maps.
+The _fuse_ is the time (in ticks) that the grenade will explode.
+Be careful of using very short fuses.  The _speed_ is the initial
+speed of the grenade.  Faster means the TNT will travel farther.
+
+### Presets:
+
+* short: fuse=30, speed=0.5
+* long: fuse=80, speed=1.0
+* fast: fuse=20, speed=1.0
 
 ### Permission Nodes:
 
-* scorched.cmd.fire - access to the fire command.
+* scorched.cmd.fire - access to commands.
+
+### TODO
+
+* There are two events, ExplosionPrimeEvent for when the entity is
+  about to explode and EntityExplodeEvent when actually exploding.
+* Catch ExplosionPrimeEvent so we can have an option to disable block
+  breaking (setBlockBreaking false)... Anti personel grenade.
+  * Needs to add a namedtag to indicate is one of our grenades.
+  * EntityExplodeEvent can change the yield?  Mega grenateds?
+  * Maybe we can add random cancel to ExplosionPrimeEvent so there is
+    a misfired grenade resulting in lying around ordenance.
+* Does the bow get damage?  A damaged bow should have a chance to
+  explode.
 
 Changes
 -------
 
+* 1.1.0 : Playability improvements
 * 1.0.0 : First release
 
 Copyright
