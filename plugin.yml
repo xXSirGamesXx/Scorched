@@ -4,7 +4,7 @@ load: POSTWORLD
 
 name: Scorched
 description: The Mother of All Mini-Games
-version: 1.2.0
+version: 1.4.0
 author: aliuly
 
 commands:
@@ -16,8 +16,22 @@ commands:
         description: Fire grenade
         usage: "/fire [fuse speed|short|long|fast]"
         permission: scorched.cmd.fire
+    dumdum:
+        description: Enable exploding arrows
+        usage: "/dumdum [yield magic]"
+        permission: scorched.cmd.dumdums
+    akira:
+        description: Create an explosion
+        usage: "/akira [yield=##] [magic] [delay=ticks]"
+        permission: scorched.cmd.akira
 
 permissions:
     scorched.cmd.fire:
         default: true
         description: "allow players to use RPGs"
+    scorched.cmd.dumdums:
+        default: true
+        description: "allow players to use Exploding arrows"
+    scorched.cmd.akira:
+        default: false
+        description: "Create a possibly big explosion!"
