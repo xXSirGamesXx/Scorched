@@ -243,7 +243,7 @@ class Main extends PluginBase implements CommandExecutor, Listener {
 		$this->shooters = [];
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
-	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args) : bool {
+	public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
 		switch($cmd->getName()) {
 			case "dumdum":
 				return $this->cmdDumDums($sender,$args);
